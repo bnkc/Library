@@ -7,39 +7,46 @@ import pandas as pd
 df = pd.read_csv('Books.csv')
 
 #The starting function 
-def Start():
+def start_input():
+
     start = input("welcome to your book collection. Continue? [Y/N] ")
     if start == 'Y':
-        Next()
+        next_input()
     else:
         exit()
+
 #function for options
-def Next():
+
+def next_input():
+
     question = input("What would you like to do next? \n View Everything [V] \n Add a Book [A] \n Exit [E] ")
     if question == 'V':
         print(df)
-        Next()
+        next_input()
     elif question == 'A':
-        Add()
+        add_input()
     else: 
         exit() 
+
 #function to add a book
-def Add():
-    
+
+def add_input():
+
     Name = input("Input Name of Book: ")
     Author = input("Please Enter The Author Name: ")
     Rating = input("Please Enter a Rating On a Scale of 1-10: ")
     with open('Books.csv', 'a+', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([Name, Author, Rating]) 
-    Next()
+    next_input()
+
 #main class
 class myBook():
     def __init__(self) -> None:
         pass
    
    
-    Start()
+    start_input()
 
    
     
